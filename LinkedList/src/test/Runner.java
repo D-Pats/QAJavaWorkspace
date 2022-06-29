@@ -47,7 +47,10 @@ public class Runner {
 //		System.out.println(staff2);
 //		System.out.println(staff3);
 
-		for (int i = 0; iterStaffLL.hasNext(); i++) {
+//		for (int i = 0; iterStaffLL.hasNext(); i++) {
+//			System.out.println(iterStaffLL.next());
+//		}
+		while(iterStaffLL.hasNext()) {
 			System.out.println(iterStaffLL.next());
 		}
 
