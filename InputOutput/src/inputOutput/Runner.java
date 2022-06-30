@@ -12,8 +12,8 @@ public class Runner {
 		
 		System.out.println(devin);
 		
-		Person cam = new Person("Cameron", 23, "Tech Specialist");
-		Person shak = new Person("Shakir", 22, "Tech Specialist");
+		Person cam = new Person("Cameron", 24, "Tech Specialist");
+		Person shak = new Person("Shakir", 23, "Tech Specialist");
 		Person adi = new Person("Aditya", 29, "Tech Specialist");
 		
 //		List<Person> listPerson = Arrays.asList(devin, cam, shak, adi);
@@ -24,7 +24,8 @@ public class Runner {
 		listPerson.add(shak);
 		listPerson.add(adi);
 		
-		System.out.println(listPerson);
+		listPerson.stream()
+			.forEach(n -> System.out.println(n));
 		
 		
 	}
