@@ -15,9 +15,18 @@ public class Runner {
 		
 		GenericTemplate<String> testTwo = new GenericTemplate<String>();
 		
-		testTwo.setTestVariable("String type");
+		testTwo.setTestVariable("String one");
 		
 		System.out.println(testTwo.getTestVariable());
+		
+//		--------------------------------
+		
+		test.setTestVariableTwo(202);
+		testTwo.setTestVariableTwo("String two");
+		
+		System.out.println(test);
+		System.out.println(testTwo);
+		
 	}
 
 }
