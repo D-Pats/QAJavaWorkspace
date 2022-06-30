@@ -85,7 +85,12 @@ public class Runner {
 		names.add("James");
 		names.add("Chris");
 		
-		names.forEach(n -> System.out.println("Hello "+ n));
+		List<String> hello = 
+				names.stream()
+					.filter(n -> !n.equals("James"))
+					.collect(Collectors.toList());
+		
+		hello.forEach(n -> System.out.println("Hello "+ n));
 		
 //		List<Integer> numbers = new ArrayList<Integer>();
 //		
