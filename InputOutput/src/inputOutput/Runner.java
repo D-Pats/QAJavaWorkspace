@@ -41,6 +41,5 @@ public class Runner {
 		
 		IOmethods.readFile();
 	
-		
 	}
 }
