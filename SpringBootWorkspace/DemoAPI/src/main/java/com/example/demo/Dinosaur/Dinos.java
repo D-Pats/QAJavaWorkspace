@@ -13,6 +13,21 @@ public class Dinos {
 	
 	@GetMapping("/test")
 	public String testPage() {
-		return "<div><h1>Hello, World!</h1></div><div><p>Some para text</p></div>";
+		return "<html>\r\n"
+				+ " <head>\r\n"
+				+ "     <style>\r\n"
+				+ "         div {\r\n"
+				+ "             width: 300px;\r\n"
+				+ "             background-color: #b0e0e6;\r\n"
+				+ "         }\r\n"
+				+ "     </style>\r\n"
+				+ " </head>\r\n"
+				+ " <body>\r\n"
+				+ "     <div>\r\n"
+				+ "         <p>In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.</p>\r\n"
+				+ "         <p>'Whenever you feel like criticizing anyone,' he told me, 'just remember that all the people in this world haven't had the advantages that you've had.'</p>\r\n"
+				+ "     </div>\r\n"
+				+ " </body>\r\n"
+				+ " </html>";
 	}
 }
