@@ -15,6 +15,7 @@ public class Dinos {
 	public String testPage() {
 		return "<html>\r\n"
 				+ " <head>\r\n"
+				+ "<title>Test Page Stuff</title>"
 				+ "     <style>\r\n"
 				+ "         div {\r\n"
 				+ "             width: 300px;\r\n"
