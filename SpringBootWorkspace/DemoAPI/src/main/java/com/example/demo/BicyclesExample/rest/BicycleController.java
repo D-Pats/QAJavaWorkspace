@@ -20,12 +20,12 @@ public class BicycleController {
 	
 	private List<Bicycles> bikes = new ArrayList<>();
 
-	@GetMapping("/")
+	@GetMapping("/demoBicycles")
 	public Bicycles getBicycles() {
 		return new Bicycles("Allez", "Specialized", 2021);
 	}
 
-	@PostMapping("/createBicycle")
+	@PostMapping("/createBicycles")
 	public Bicycles create(@RequestBody Bicycles bicycle) {
 		System.out.println("Created: " + bicycle);
 		this.bikes.add(bicycle);
@@ -40,9 +40,9 @@ public class BicycleController {
 		System.out.println("Year: " + year);
 	}
 
-	@DeleteMapping("/removeBicycle/{id}")
+	@DeleteMapping("/removeBicycles/{id}")
 	public void delete(@PathVariable int id) {
-		System.out.println("Year: " + id);
+		System.out.println("ID: " + id);
 	}
 
 }
