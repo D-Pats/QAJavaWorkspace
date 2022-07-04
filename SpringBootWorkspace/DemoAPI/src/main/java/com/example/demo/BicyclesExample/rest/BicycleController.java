@@ -1,5 +1,8 @@
 package com.example.demo.BicyclesExample.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +17,8 @@ import com.example.demo.BicyclesExample.entity.Bicycles;
 
 @RestController
 public class BicycleController {
+	
+	private List<Bicycles> bikes = new ArrayList<>();
 
 	@GetMapping("/")
 	public Bicycles getBicycles() {
@@ -21,8 +26,10 @@ public class BicycleController {
 	}
 
 	@PostMapping("/createBicycle")
-	public void create(@RequestBody Bicycles giant) {
-		System.out.println("Created: " + giant);
+	public Bicycles create(@RequestBody Bicycles bicycle) {
+		System.out.println("Created: " + bicycle);
+		this.bikes.add(bicycle);
+		return this.bikes.get(this.bikes.size()-1);
 	}
 
 	@PatchMapping("/updateBicycles")
