@@ -2,8 +2,13 @@ package com.example.demo.BicyclesExample.service;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.BicyclesExample.entity.Bicycles;
 
+@Service
+@Primary
 public class BicycleServiceList implements BicycleService{
 
 	@Override
