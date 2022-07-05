@@ -1,12 +1,12 @@
 package com.example.demo.BicyclesExample.rest;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.websocket.server.PathParam;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,46 +23,55 @@ public class BicycleController {
 	private List<Bicycles> bikes = new ArrayList<>();
 
 	@GetMapping("/getBicycles")
-	public List<Bicycles> getBicycles() {
-		return this.bikes;
+	public ResponseEntity<List<Bicycles>> getBicycles() {
+		return new ResponseEntity<List<Bicycles>>(this.bikes, HttpStatus.ACCEPTED);
 	}
 
 	@GetMapping("/getBicyclesById/{id}")
-	public Bicycles getByID(@PathVariable int id) {
-		return this.bikes.get(id -1);
+	public ResponseEntity<Bicycles> getByID(@PathVariable int id) {
+		Bicycles byID = this.bikes.get(id -1);
+		return new ResponseEntity<Bicycles>(byID, HttpStatus.ACCEPTED);
 	}
 	
 	
 	@PostMapping("/createBicycles")
-	public Bicycles create(@RequestBody Bicycles bicycle) {
+	public ResponseEntity<Bicycles> create(@RequestBody Bicycles bicycle) {
 		System.out.println("Created: " + bicycle);
 		this.bikes.add(bicycle);
-		return this.bikes.get(this.bikes.size() - 1);
+		Bicycles created = this.bikes.get(this.bikes.size() - 1);
+		return new ResponseEntity<Bicycles>(created, HttpStatus.CREATED);
 	}
 
 	@PatchMapping("/updateBicycles/{id}")
+	public ResponseEntity<Bicycles> update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
+			@PathParam("year") Integer year) {
+		Bicycles bikeUpdate = this.bikes.get(id -1);
+		if (model != null)
+			bikeUpdate.setModel(model);
+		if (brand != null)
+			bikeUpdate.setBrand(brand);
+		if (year != null)
+			bikeUpdate.setYear(year);
+
+		return new ResponseEntity<Bicycles>(bikeUpdate, HttpStatus.ACCEPTED);
+	}
+	
 //	public void update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
 //			@PathParam("year") int year) 
-	public Bicycles update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
-			@PathParam("year") int year) {
 //		this.bikes.get(id -1).setModel(model);
 //		this.bikes.get(id -1).setBrand(brand);
-//		this.bikes.get(id -1).setYear(year);	
-		Bicycles bikeUpdate = this.bikes.get(id -1);
-		bikeUpdate.setModel(model);
-		bikeUpdate.setBrand(brand);
-		bikeUpdate.setYear(year);
-//		System.out.println("ID: " + id);
-//		System.out.println("Model: " + model);
-//		System.out.println("Brand: " + brand);
-//		System.out.println("Year: " + year);
-		return bikeUpdate;
-	}
+//		this.bikes.get(id -1).setYear(year);
+//	System.out.println("ID: " + id);
+//	System.out.println("Model: " + model);
+//	System.out.println("Brand: " + brand);
+//	System.out.println("Year: " + year);
+
 
 	@DeleteMapping("/removeBicycles/{id}")
-	public void delete(@PathVariable int id) {
+	public ResponseEntity<?> delete(@PathVariable int id) {
 		this.bikes.remove(id -1);
-		System.out.println("ID: " + id);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		
 	}
 
 }
