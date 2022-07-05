@@ -41,15 +41,22 @@ public class BicycleController {
 	}
 
 	@PatchMapping("/updateBicycles/{id}")
-	public void update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
+//	public void update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
+//			@PathParam("year") int year) 
+	public Bicycles update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
 			@PathParam("year") int year) {
-		this.bikes.get(id -1).setModel(model);
-		this.bikes.get(id -1).setBrand(brand);
-		this.bikes.get(id -1).setYear(year);		
-		System.out.println("ID: " + id);
-		System.out.println("Model: " + model);
-		System.out.println("Brand: " + brand);
-		System.out.println("Year: " + year);
+//		this.bikes.get(id -1).setModel(model);
+//		this.bikes.get(id -1).setBrand(brand);
+//		this.bikes.get(id -1).setYear(year);	
+		Bicycles bikeUpdate = this.bikes.get(id -1);
+		bikeUpdate.setModel(model);
+		bikeUpdate.setBrand(brand);
+		bikeUpdate.setYear(year);
+//		System.out.println("ID: " + id);
+//		System.out.println("Model: " + model);
+//		System.out.println("Brand: " + brand);
+//		System.out.println("Year: " + year);
+		return bikeUpdate;
 	}
 
 	@DeleteMapping("/removeBicycles/{id}")
