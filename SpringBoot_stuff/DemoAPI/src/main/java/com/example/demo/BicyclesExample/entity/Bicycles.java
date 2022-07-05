@@ -1,6 +1,7 @@
 package com.example.demo.BicyclesExample.entity;
 
 public class Bicycles {
+	private int id;
 	private String model;
 	private String brand;
 	private int year;
@@ -8,11 +9,20 @@ public class Bicycles {
 	public Bicycles() {
 	}
 
-	public Bicycles(String model, String brand, int year) {
+	public Bicycles(int id, String model, String brand, int year) {
 		super();
+		this.id = id;
 		this.model = model;
 		this.brand = brand;
 		this.year = year;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getModel() {
@@ -41,6 +51,8 @@ public class Bicycles {
 
 	@Override
 	public String toString() {
-		return "Bicycles [model=" + model + ", make=" + brand + ", year=" + year + "]";
+		return "Bicycles [id=" + id + ", model=" + model + ", brand=" + brand + ", year=" + year + "]";
 	}
+
+
 }

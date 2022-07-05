@@ -20,25 +20,11 @@ import com.example.demo.BicyclesExample.entity.Bicycles;
 @RestController
 public class BicycleController {
 
-	private static List<Bicycles> bikes = new ArrayList<>();
-
-//	Maybe put below in another class and have getBicycles run the method from that class?	
-//	Map<Integer, Bicycles> bikeMap = new HashMap<>();
-//
-//	public static void main(String[] args) {
-//		for (int i = 0; bikes.size(); i++) {
-//
-//		}
-//		;
-//	}
-
-//	Bicycles bike1 = new Bicycles("Allez", "Specialized", 2021);
-//	Bicycles bike2 = new Bicycles("Dogma F12", "Pinarello", 2022);
-//	Bicycles bike3 = new Bicycles("Timemachine Road", "BMC", 2021);
+	private List<Bicycles> bikes = new ArrayList<>();
 
 	@GetMapping("/demoBicycles")
-	public Bicycles getBicycles() {
-		return new Bicycles("Allez", "Specialized", 2021);
+	public List<Bicycles> getBicycles() {
+		return this.bikes;
 	}
 
 	@PostMapping("/createBicycles")
@@ -48,9 +34,12 @@ public class BicycleController {
 		return this.bikes.get(this.bikes.size() - 1);
 	}
 
-	@PatchMapping("/updateBicycles")
+	@PatchMapping("/updateBicycles/{id}")
 	public void update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
 			@PathParam("year") int year) {
+		this.bikes.get(id -1).setModel(model);
+		this.bikes.get(id -1).setBrand(brand);
+		this.bikes.get(id -1).setYear(year);		
 		System.out.println("ID: " + id);
 		System.out.println("Model: " + model);
 		System.out.println("Brand: " + brand);
@@ -59,6 +48,7 @@ public class BicycleController {
 
 	@DeleteMapping("/removeBicycles/{id}")
 	public void delete(@PathVariable int id) {
+		this.bikes.remove(id -1);
 		System.out.println("ID: " + id);
 	}
 
