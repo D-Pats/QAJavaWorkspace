@@ -22,11 +22,17 @@ public class BicycleController {
 
 	private List<Bicycles> bikes = new ArrayList<>();
 
-	@GetMapping("/demoBicycles")
+	@GetMapping("/getBicycles")
 	public List<Bicycles> getBicycles() {
 		return this.bikes;
 	}
 
+	@GetMapping("/getBicyclesById/{id}")
+	public Bicycles getByID(@PathVariable int id) {
+		return this.bikes.get(id -1);
+	}
+	
+	
 	@PostMapping("/createBicycles")
 	public Bicycles create(@RequestBody Bicycles bicycle) {
 		System.out.println("Created: " + bicycle);
