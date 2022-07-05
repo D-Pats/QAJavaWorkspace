@@ -23,7 +23,7 @@ public class BicycleController {
 	private List<Bicycles> bikes = new ArrayList<>();
 
 	@GetMapping("/getBicycles")
-	public ResponseEntity<List<Bicycles>> getBicycles() {
+	public ResponseEntity<List<Bicycles>> getAll() {
 		return new ResponseEntity<List<Bicycles>>(this.bikes, HttpStatus.ACCEPTED);
 	}
 
