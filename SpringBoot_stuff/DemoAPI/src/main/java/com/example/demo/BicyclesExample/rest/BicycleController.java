@@ -53,7 +53,7 @@ public class BicycleController {
 		if (year != null)
 			bikeUpdate.setYear(year);
 
-		return new ResponseEntity<Bicycles>(bikeUpdate, HttpStatus.ACCEPTED);
+		return new ResponseEntity<Bicycles>(bikeUpdate, HttpStatus.CREATED);
 	}
 	
 //	public void update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
