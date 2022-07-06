@@ -24,6 +24,11 @@ public class BicycleController {
 	@Autowired
 	private BicycleService service; // dependency
 
+	@GetMapping("/demoBicycles")
+	public Bicycles getDemoBicycles() {
+		return new Bicycles("Allez", "Specialized", 2021);
+	}
+
 	@GetMapping("/getBicycles")
 	public ResponseEntity<List<Bicycles>> getAll() {
 		return new ResponseEntity<List<Bicycles>>(this.service.getAll(), HttpStatus.OK);
@@ -45,22 +50,12 @@ public class BicycleController {
 	public Bicycles update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
 			@PathParam("year") Integer year) {
 		return this.service.update(id, model, brand, year);
-//		Bicycles bikeUpdate = this.service.update(id - 1);
-//		if (model != null)
-//			bikeUpdate.setModel(model);
-//		if (brand != null)
-//			bikeUpdate.setBrand(brand);
-//		if (year != null)
-//			bikeUpdate.setYear(year);
-//
-//		return new ResponseEntity<Bicycles>(bikeUpdate, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/removeBicycles/{id}")
 	public ResponseEntity<?> delete(@PathVariable int id) {
 		this.service.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
 	}
 
 }

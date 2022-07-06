@@ -16,19 +16,20 @@ public class BicycleServiceList implements BicycleService {
 	@Override
 	public Bicycles getById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.bikes.get(id);
 	}
 
 	@Override
 	public List<Bicycles> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.bikes;
 	}
 
 	@Override
-	public Bicycles create(Bicycles bicycle) {
+	public Bicycles create(Bicycles bike) {
 		// TODO Auto-generated method stub
-		return null;
+		this.bikes.add(bike);
+		return this.bikes.get(this.bikes.size() - 1);
 	}
 
 	@Override

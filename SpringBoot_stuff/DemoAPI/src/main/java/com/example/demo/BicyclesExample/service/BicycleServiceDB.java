@@ -29,9 +29,9 @@ public class BicycleServiceDB implements BicycleService {
 	}
 
 	@Override
-	public Bicycles create(Bicycles bicycle) {
+	public Bicycles create(Bicycles bikes) {
 		// TODO Auto-generated method stub
-		return this.repo.save(bicycle);
+		return this.repo.save(bikes);
 	}
 
 	@Override
