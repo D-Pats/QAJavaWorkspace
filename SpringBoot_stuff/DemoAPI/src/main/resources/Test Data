@@ -1,20 +1,17 @@
 {
-    "id": 1,
     "model": "Allez",
     "brand": "Specialized",
-    "year": 2021
+    "releaseYear": 2021
 }
 
 {
-    "id": 2,
     "model": "Dogma F12",
     "brand": "Pinarello",
-    "year": 2022
+    "releaseYear": 2022
 }
 
 {
-    "id": 3,
     "model": "Timemachine Road",
     "brand": "BMC",
-    "year": 2022
+    "releaseYear": 2022
 }

@@ -41,7 +41,7 @@ public class BicycleServiceList implements BicycleService {
 		if (brand != null)
 			toUpdate.setBrand(brand);
 		if (year != null)
-			toUpdate.setYear(year);
+			toUpdate.setReleaseYear(year);
 		return toUpdate;
 	}
 

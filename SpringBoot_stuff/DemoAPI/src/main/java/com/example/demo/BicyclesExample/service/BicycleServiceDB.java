@@ -43,7 +43,7 @@ public class BicycleServiceDB implements BicycleService {
 		if (brand != null)
 			toUpdate.setBrand(brand);
 		if (year != null)
-			toUpdate.setYear(year);
+			toUpdate.setReleaseYear(year);
 		return this.repo.save(toUpdate);
 	}
 
