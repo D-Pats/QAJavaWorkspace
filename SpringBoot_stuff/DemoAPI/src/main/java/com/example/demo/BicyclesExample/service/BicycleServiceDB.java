@@ -3,12 +3,14 @@ package com.example.demo.BicyclesExample.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.BicyclesExample.entity.Bicycles;
 import com.example.demo.BicyclesExample.repo.BicyclesRepo;
 
 @Service
+@Primary
 public class BicycleServiceDB implements BicycleService {
 
 	@Autowired
