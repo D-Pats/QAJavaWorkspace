@@ -35,7 +35,7 @@ public class BicycleController {
 	}
 
 	@GetMapping("/getBicyclesById/{id}")
-	public Bicycles getByID(@PathVariable int id) {
+	public Bicycles getByID(@PathVariable Integer id) {
 		return this.service.getById(id);
 	}
 
@@ -47,13 +47,13 @@ public class BicycleController {
 	}
 
 	@PatchMapping("/updateBicycles/{id}")
-	public Bicycles update(@PathVariable int id, @PathParam("model") String model, @PathParam("brand") String brand,
-			@PathParam("year") Integer year) {
-		return this.service.update(id, model, brand, year);
+	public Bicycles update(@PathVariable Integer id, @PathParam("model") String model, @PathParam("brand") String brand,
+			@PathParam("year") Integer releaseYear) {
+		return this.service.update(id, model, brand, releaseYear);
 	}
 
 	@DeleteMapping("/removeBicycles/{id}")
-	public ResponseEntity<?> delete(@PathVariable int id) {
+	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		this.service.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}

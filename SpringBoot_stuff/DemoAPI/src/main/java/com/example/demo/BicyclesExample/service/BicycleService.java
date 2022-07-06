@@ -6,7 +6,7 @@ import com.example.demo.BicyclesExample.entity.Bicycles;
 
 public interface BicycleService {
 
-	Bicycles getById(int id);
+	Bicycles getById(Integer id);
 
 	List<Bicycles> getAll();
 
@@ -16,7 +16,7 @@ public interface BicycleService {
 
 	Bicycles create(Bicycles bicycle);
 
-	Bicycles update(int id, String model, String brand, Integer year);
+	Bicycles update(Integer id, String model, String brand, Integer year);
 
-	void delete(int id);
+	void delete(Integer id);
 }

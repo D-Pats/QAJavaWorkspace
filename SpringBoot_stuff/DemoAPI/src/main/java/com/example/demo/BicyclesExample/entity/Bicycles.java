@@ -16,13 +16,13 @@ public class Bicycles {
 
 	private String brand;
 
-	private int releaseYear;
+	private Integer releaseYear;
 
 	public Bicycles() {
 		super();
 	}
 
-	public Bicycles(Integer id, String model, String brand, int releaseYear) {
+	public Bicycles(Integer id, String model, String brand, Integer releaseYear) {
 		super();
 		this.id = id;
 		this.model = model;
@@ -30,7 +30,7 @@ public class Bicycles {
 		this.releaseYear = releaseYear;
 	}
 
-	public Bicycles(String model, String brand, int releaseYear) {
+	public Bicycles(String model, String brand, Integer releaseYear) {
 		super();
 		this.model = model;
 		this.brand = brand;
@@ -41,7 +41,7 @@ public class Bicycles {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 

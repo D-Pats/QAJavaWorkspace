@@ -17,7 +17,7 @@ public class BicycleServiceDB implements BicycleService {
 	private BicyclesRepo repo;
 
 	@Override
-	public Bicycles getById(int id) {
+	public Bicycles getById(Integer id) {
 		// TODO Auto-generated method stub
 		return this.repo.findById(id).get();
 	}
@@ -35,20 +35,20 @@ public class BicycleServiceDB implements BicycleService {
 	}
 
 	@Override
-	public Bicycles update(int id, String model, String brand, Integer year) {
+	public Bicycles update(Integer id, String model, String brand, Integer releaseYear) {
 		// TODO Auto-generated method stub
 		Bicycles toUpdate = this.getById(id);
 		if (model != null)
 			toUpdate.setModel(model);
 		if (brand != null)
 			toUpdate.setBrand(brand);
-		if (year != null)
-			toUpdate.setReleaseYear(year);
+		if (releaseYear != null)
+			toUpdate.setReleaseYear(releaseYear);
 		return this.repo.save(toUpdate);
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		this.repo.deleteById(id);
 	}
