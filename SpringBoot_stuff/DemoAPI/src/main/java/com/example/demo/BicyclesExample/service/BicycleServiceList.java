@@ -1,15 +1,17 @@
 package com.example.demo.BicyclesExample.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.BicyclesExample.entity.Bicycles;
 
 @Service
-@Primary
-public class BicycleServiceList implements BicycleService{
+
+public class BicycleServiceList implements BicycleService {
+
+	private List<Bicycles> bikes = new ArrayList<>();
 
 	@Override
 	public Bicycles getById(int id) {
@@ -32,14 +34,32 @@ public class BicycleServiceList implements BicycleService{
 	@Override
 	public Bicycles update(int id, String model, String brand, Integer year) {
 		// TODO Auto-generated method stub
-		return null;
+		Bicycles toUpdate = this.getById(id);
+		if (model != null)
+			toUpdate.setModel(model);
+		if (brand != null)
+			toUpdate.setBrand(brand);
+		if (year != null)
+			toUpdate.setYear(year);
+		return toUpdate;
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+		this.bikes.remove(id);
 	}
 
-	
+	@Override
+	public Bicycles findByModel(String model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Bicycles findByBrand(String brand) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
