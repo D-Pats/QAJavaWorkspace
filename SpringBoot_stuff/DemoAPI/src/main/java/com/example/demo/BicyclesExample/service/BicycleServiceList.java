@@ -14,7 +14,7 @@ public class BicycleServiceList implements BicycleService {
 	private List<Bicycles> bikes = new ArrayList<>();
 
 	@Override
-	public Bicycles getById(int id) {
+	public Bicycles getById(Integer id) {
 		// TODO Auto-generated method stub
 		return this.bikes.get(id);
 	}
@@ -33,7 +33,7 @@ public class BicycleServiceList implements BicycleService {
 	}
 
 	@Override
-	public Bicycles update(int id, String model, String brand, Integer year) {
+	public Bicycles update(Integer id, String model, String brand, Integer year) {
 		// TODO Auto-generated method stub
 		Bicycles toUpdate = this.getById(id);
 		if (model != null)
@@ -46,7 +46,7 @@ public class BicycleServiceList implements BicycleService {
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		this.bikes.remove(id);
 	}
