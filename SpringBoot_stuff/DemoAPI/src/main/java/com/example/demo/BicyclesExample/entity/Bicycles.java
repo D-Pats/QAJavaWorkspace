@@ -22,11 +22,11 @@ public class Bicycles {
 		super();
 	}
 
-	public int getReleaseYear() {
-		return releaseYear;
-	}
-
-	public void setReleaseYear(int releaseYear) {
+	public Bicycles(Integer id, String model, String brand, int releaseYear) {
+		super();
+		this.id = id;
+		this.model = model;
+		this.brand = brand;
 		this.releaseYear = releaseYear;
 	}
 
@@ -34,6 +34,14 @@ public class Bicycles {
 		super();
 		this.model = model;
 		this.brand = brand;
+		this.releaseYear = releaseYear;
+	}
+
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+
+	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
