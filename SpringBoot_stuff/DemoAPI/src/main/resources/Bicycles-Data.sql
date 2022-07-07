@@ -1,12 +1,12 @@
 INSERT INTO `bicycles` (
 	`id`,
-	`brand`,
 	`model`,
+	`brand`,
 	`release_year`
 ) 
 VALUES (
 	default,
-	'Allez',
-	'Specialized',
-	2021
+	'DogmaF12',
+	'Pinarello',
+	2022
 );

@@ -52,15 +52,15 @@ public class BicycleControllerIntegrationTest {
 	
 	@Test
 	void testRead() throws Exception {
-		List<Bicycles> bikes = List.of(new Bicycles(1, "Allez", "Specialized", 2021));
+		List<Bicycles> bikes = List.of(new Bicycles(1, "DogmaF12", "Pinarello", 2022));
 		this.mvc.perform(get("/getBicycles")).andExpect(status().isOk())
 				.andExpect(content().json(this.mapper.writeValueAsString(bikes)));
 	}
 	
 	@Test
 	void testUpdate() throws Exception {
-		Bicycles updated = new Bicycles (1, "DogmaF12", "Pinarello", 2022);
-		this.mvc.perform(patch("updateBicycles/1?model=DogmaF12&brand=Pinarello&releaseYear=2022")).andExpect(status().isOk())
+		Bicycles updated = new Bicycles (1, "Tarmac", "SWorks", 2022);
+		this.mvc.perform(patch("/updateBicycles/1?model=Tarmac&brand=SWorks&releaseYear=2022")).andExpect(status().isOk())
 				.andExpect(content().json(this.mapper.writeValueAsString(updated)));
 	}
 	
