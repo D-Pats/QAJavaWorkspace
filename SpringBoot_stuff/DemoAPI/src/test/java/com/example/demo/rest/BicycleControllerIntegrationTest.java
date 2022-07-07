@@ -1,14 +1,18 @@
 package com.example.demo.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
@@ -23,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(scripts = { "classpath:Bicycles-schema.sql", "classpath:Bicycles-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@ActiveProfiles("test")
 public class BicycleControllerIntegrationTest {
 
 	@Autowired
@@ -43,6 +48,20 @@ public class BicycleControllerIntegrationTest {
 		ResultMatcher checkBody = MockMvcResultMatchers.content().json(createdBikeAsJSON);
 
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void testRead() throws Exception {
+		List<Bicycles> bikes = List.of(new Bicycles(1, "Allez", "Specialized", 2021));
+		this.mvc.perform(get("/getBicycles")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(bikes)));
+	}
+	
+	@Test
+	void testUpdate() throws Exception {
+		Bicycles updated = new Bicycles (1, "DogmaF12", "Pinarello", 2022);
+		this.mvc.perform(patch("updateBicycles/1?model=DogmaF12&brand=Pinarello&releaseYear=2022")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(updated)));
 	}
 	
 	@Test

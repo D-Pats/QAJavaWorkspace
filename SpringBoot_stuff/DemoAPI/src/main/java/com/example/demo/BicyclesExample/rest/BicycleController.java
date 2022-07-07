@@ -30,8 +30,8 @@ public class BicycleController {
 	}
 
 	@GetMapping("/getBicycles")
-	public ResponseEntity<List<Bicycles>> getAll() {
-		return new ResponseEntity<List<Bicycles>>(this.service.getAll(), HttpStatus.OK);
+	public List<Bicycles> getAll() {
+		return this.service.getAll();
 	}
 
 	@GetMapping("/getBicyclesById/{id}")
@@ -48,7 +48,7 @@ public class BicycleController {
 
 	@PatchMapping("/updateBicycles/{id}")
 	public Bicycles update(@PathVariable Integer id, @PathParam("model") String model, @PathParam("brand") String brand,
-			@PathParam("year") Integer releaseYear) {
+			@PathParam("releaseYear") Integer releaseYear) {
 		return this.service.update(id, model, brand, releaseYear);
 	}
 
